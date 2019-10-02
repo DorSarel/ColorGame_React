@@ -1,8 +1,9 @@
 import React from 'react';
+import GamePanel from './containers/GamePanel/GamePanel';
 
 function App() {
   return (
-    <p>Just placeholder</p>
+    <GamePanel />
   );
 }
 
