@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import Header from '../../components/Header/Header';
+
 import classes from './GamePanel.module.css';
+
 class GamePanel extends Component {
 
     state = {
@@ -13,10 +16,7 @@ class GamePanel extends Component {
     render() {
         return (
             <div className={classes.gamePanel}>
-                <header>
-                    <h1>Game Title</h1>
-                    <h3>Random Color</h3>
-                </header>
+                <Header />
 
                 <div>
                     <ul>
