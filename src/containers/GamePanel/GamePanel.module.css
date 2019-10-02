@@ -1,4 +1,7 @@
 .gamePanel {
     text-align: center;
-    margin-top: 2.25rem;
+}
+
+.gameBoard {
+    background-color: #232323;
 }

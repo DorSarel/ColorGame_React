@@ -20,8 +20,8 @@ class GamePanel extends Component {
             <div className={classes.gamePanel}>
                 <Header pickedColor={this.state.pickedRandomcolor} />
                 <GameControls />
-                <main>
-                    <p>A Number of cards</p>
+                <main className={classes.gameBoard}>
+                    
                 </main>
             </div>
         );
