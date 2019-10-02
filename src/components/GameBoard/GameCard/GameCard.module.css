@@ -1,0 +1,8 @@
+.gameCard {
+    background-color: white;
+    border-radius: .5rem;
+    width: 12rem;
+    height: 12rem;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}

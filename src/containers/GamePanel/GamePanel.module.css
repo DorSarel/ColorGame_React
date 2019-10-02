@@ -4,4 +4,7 @@
 
 .gameBoard {
     background-color: #232323;
+    width: 50%;
+    margin: auto;
+    margin-top: 5rem;
 }

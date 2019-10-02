@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import GameControls from '../../components/GameControls/GameControls';
+import GameBoard from '../../components/GameBoard/GameBoard';
 
 import classes from './GamePanel.module.css';
 
@@ -14,13 +15,13 @@ class GamePanel extends Component {
         },
         levels: {
             easy: {
-                numOfCards: 3
+                numOfCards: 4
             },
             meduim: {
-                numOfCards: 6
+                numOfCards: 8
             },
             hard: {
-                numOfCards: 9
+                numOfCards: 12
             }
         },
         selectedLevel: 'meduim',
@@ -35,7 +36,7 @@ class GamePanel extends Component {
                     gameLevels={this.state.levels}
                     isGameOn={this.state.isPlaying} />
                 <main className={classes.gameBoard}>
-                    
+                    <GameBoard />
                 </main>
             </div>
         );
