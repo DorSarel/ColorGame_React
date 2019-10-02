@@ -1,0 +1,11 @@
+.gameControls {
+    background-color: white;
+    margin-bottom: 1rem;
+}
+
+.gameControls__flex {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+}

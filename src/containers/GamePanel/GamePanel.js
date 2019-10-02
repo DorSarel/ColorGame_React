@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
+import GameControls from '../../components/GameControls/GameControls';
 
 import classes from './GamePanel.module.css';
 
@@ -17,15 +18,7 @@ class GamePanel extends Component {
         return (
             <div className={classes.gamePanel}>
                 <Header pickedColor={this.state.pickedRandomcolor} />
-                <div>
-                    <ul>
-                        <li>Button 1</li>
-                        <li>Button 2</li>
-                        <li>Button 3</li>
-                        <li>Button 4</li>
-                    </ul>
-                </div>
-
+                <GameControls />
                 <main>
                     <p>A Number of cards</p>
                 </main>
