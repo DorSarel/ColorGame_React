@@ -16,8 +16,7 @@ class GamePanel extends Component {
     render() {
         return (
             <div className={classes.gamePanel}>
-                <Header />
-
+                <Header pickedColor={this.state.pickedRandomcolor} />
                 <div>
                     <ul>
                         <li>Button 1</li>
