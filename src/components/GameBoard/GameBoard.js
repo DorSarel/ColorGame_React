@@ -5,15 +5,20 @@ import classes from './GameBoard.module.css';
 
 const gameBoard = ( props ) => {
 
+    let cards = [];
+    if (props.cardsColors.length !== 0) {
+        console.log(props.cardsColors);
+        for (let idx = 0; idx < props.numOfCards; ++idx) {
+            let rgb = `rgb(${props.cardsColors[idx].red}, ${props.cardsColors[idx].green}, ${props.cardsColors[idx].blue})`;
+            cards.push(
+                <GameCard color={rgb} key={idx} />
+            )
+        }
+    }
+
     return (
         <div className={classes.board}>
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
-            <GameCard />
+            {cards}
         </div>
     );
 }

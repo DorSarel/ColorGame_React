@@ -68,7 +68,9 @@ class GamePanel extends Component {
                     isGameOn={this.state.isPlaying}
                     startGame={this.startGameHandler} />
                 <main className={classes.gameBoard}>
-                    <GameBoard />
+                    <GameBoard 
+                        numOfCards={this.state.levels[this.state.selectedLevel].numOfCards}
+                        cardsColors={this.state.colors} />
                 </main>
             </div>
         );
