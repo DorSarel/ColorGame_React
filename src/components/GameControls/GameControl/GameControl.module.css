@@ -8,7 +8,8 @@
     transition: all .2s;
 }
 
-.gameControl:hover {
+.gameControl:hover,
+.selected {
     background-color: steelblue;
     color: white;
 }

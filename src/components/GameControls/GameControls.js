@@ -8,7 +8,8 @@ const gameControls = ( props ) => {
     const levelsControls = Object.keys(props.gameLevels).map(lvlKey => {
         return <GameControl 
                     key={lvlKey}
-                    clicked={() => props.setLevel(lvlKey)} >
+                    clicked={() => props.setLevel(lvlKey)}
+                    isSelected={props.currentLevel === lvlKey} >
                     {lvlKey.toUpperCase()}
                 </GameControl>
     });
