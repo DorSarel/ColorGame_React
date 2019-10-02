@@ -5,17 +5,21 @@ import classes from './GameControls.module.css';
 
 const gameControls = ( props ) => {
 
+    const levelsControls = Object.keys(props.gameLevels).map(lvlKey => {
+        return <GameControl key={lvlKey}>{lvlKey.toUpperCase()}</GameControl>
+    });
+
+    const resetBtnTxt = props.isGameOn ? 'new colors' : 'reset';
+
     return (
         <div className={classes.gameControls}>
             <div className={classes.gameControls__flex}>
                 <div>
-                    <GameControl>New Colors</GameControl>
+                    <GameControl>{resetBtnTxt.toUpperCase()}</GameControl>
                 </div>
 
                 <div>
-                    <GameControl>Easy</GameControl>
-                    <GameControl>Meduim</GameControl>
-                    <GameControl>Hard</GameControl>
+                    {levelsControls}
                 </div>
             </div>
         </div>

@@ -12,6 +12,17 @@ class GamePanel extends Component {
             green: '255',
             blue: '255'
         },
+        levels: {
+            easy: {
+                numOfCards: 3
+            },
+            meduim: {
+                numOfCards: 6
+            },
+            hard: {
+                numOfCards: 9
+            }
+        },
         isPlaying: true
     }
 
@@ -19,7 +30,9 @@ class GamePanel extends Component {
         return (
             <div className={classes.gamePanel}>
                 <Header pickedColor={this.state.pickedRandomcolor} />
-                <GameControls />
+                <GameControls 
+                    gameLevels={this.state.levels}
+                    isGameOn={this.state.isPlaying} />
                 <main className={classes.gameBoard}>
                     
                 </main>
