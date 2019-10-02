@@ -1,4 +1,5 @@
 import React from 'react';
+import GameControl from './GameControl/GameControl';
 
 import classes from './GameControls.module.css';
 
@@ -8,13 +9,13 @@ const gameControls = ( props ) => {
         <div className={classes.gameControls}>
             <div className={classes.gameControls__flex}>
                 <div>
-                    <button>New Colors</button>
+                    <GameControl>New Colors</GameControl>
                 </div>
 
                 <div>
-                    <button>Easy</button>
-                    <button>Meduim</button>
-                    <button>Hard</button>
+                    <GameControl>Easy</GameControl>
+                    <GameControl>Meduim</GameControl>
+                    <GameControl>Hard</GameControl>
                 </div>
             </div>
         </div>

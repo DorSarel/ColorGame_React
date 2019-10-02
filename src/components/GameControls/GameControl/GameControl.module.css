@@ -1,0 +1,14 @@
+.gameControl {
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    padding: .75rem;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+}
+
+.gameControl:hover {
+    background-color: steelblue;
+    color: white;
+}

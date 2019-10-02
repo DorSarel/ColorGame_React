@@ -11,7 +11,8 @@ class GamePanel extends Component {
             red: '255',
             green: '255',
             blue: '255'
-        }
+        },
+        isPlaying: true
     }
 
     render() {
