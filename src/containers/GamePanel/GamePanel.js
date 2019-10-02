@@ -51,7 +51,8 @@ class GamePanel extends Component {
         const pickedColor = this.pickRandomColor(randomColors);
         this.setState({ 
             colors: randomColors,
-            pickedRandomcolor: pickedColor
+            pickedRandomcolor: pickedColor,
+            isPlaying: true
          });
     }
 
@@ -69,6 +70,12 @@ class GamePanel extends Component {
         this.generateRandomColors(level);
     }
 
+    checkPickedColorHandler = (colorFromCard) => {
+        if (colorFromCard === this.state.pickedRandomcolor) {
+            this.setState({ isPlaying: false });
+        }
+    }
+
     render() {
         return (
             <div className={classes.gamePanel}>
@@ -81,7 +88,8 @@ class GamePanel extends Component {
                 <main className={classes.gameBoard}>
                     <GameBoard 
                         numOfCards={this.state.levels[this.state.selectedLevel].numOfCards}
-                        cardsColors={this.state.colors} />
+                        cardsColors={this.state.colors}
+                        checkCard={this.checkPickedColorHandler} />
                 </main>
             </div>
         );

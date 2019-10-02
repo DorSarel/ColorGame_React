@@ -11,7 +11,10 @@ const gameBoard = ( props ) => {
         for (let idx = 0; idx < props.numOfCards; ++idx) {
             let rgb = `rgb(${props.cardsColors[idx].red}, ${props.cardsColors[idx].green}, ${props.cardsColors[idx].blue})`;
             cards.push(
-                <GameCard color={rgb} key={idx} />
+                <GameCard 
+                    color={rgb} 
+                    key={idx}
+                    clicked={() => props.checkCard(props.cardsColors[idx])} />
             )
         }
     }
