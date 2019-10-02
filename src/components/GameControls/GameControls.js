@@ -6,7 +6,9 @@ import classes from './GameControls.module.css';
 const gameControls = ( props ) => {
 
     const levelsControls = Object.keys(props.gameLevels).map(lvlKey => {
-        return <GameControl key={lvlKey}>
+        return <GameControl 
+                    key={lvlKey}
+                    clicked={() => props.setLevel(lvlKey)} >
                     {lvlKey.toUpperCase()}
                 </GameControl>
     });

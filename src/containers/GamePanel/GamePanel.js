@@ -29,9 +29,14 @@ class GamePanel extends Component {
         this.startGameHandler();
     }
 
-    generateRandomColors = () => {
+    generateRandomColors = (optionalLevel) => {
+        let numOfCards = 0;
+        if (!optionalLevel) {
+            numOfCards = this.state.levels[this.state.selectedLevel].numOfCards;
+        } else {
+            numOfCards = this.state.levels[optionalLevel].numOfCards;
+        }
         const randomColors = [];
-        const numOfCards = this.state.levels[this.state.selectedLevel].numOfCards;
         
         let color;
         for (let idx = 0; idx < numOfCards; ++idx) {
@@ -59,6 +64,11 @@ class GamePanel extends Component {
         this.generateRandomColors();
     }
 
+    setGameLevelHandler = (level) => {
+        this.setState({ selectedLevel: level });
+        this.generateRandomColors(level);
+    }
+
     render() {
         return (
             <div className={classes.gamePanel}>
@@ -66,7 +76,8 @@ class GamePanel extends Component {
                 <GameControls
                     gameLevels={this.state.levels}
                     isGameOn={this.state.isPlaying}
-                    startGame={this.startGameHandler} />
+                    startGame={this.startGameHandler}
+                    setLevel={this.setGameLevelHandler} />
                 <main className={classes.gameBoard}>
                     <GameBoard 
                         numOfCards={this.state.levels[this.state.selectedLevel].numOfCards}
