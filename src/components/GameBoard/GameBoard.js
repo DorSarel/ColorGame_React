@@ -14,7 +14,7 @@ const gameBoard = ( props ) => {
                 <GameCard 
                     color={rgb} 
                     key={idx}
-                    clicked={() => props.checkCard(props.cardsColors[idx])} />
+                    clicked={(e) => props.checkCard(props.cardsColors[idx], e)} />
             )
         }
     }

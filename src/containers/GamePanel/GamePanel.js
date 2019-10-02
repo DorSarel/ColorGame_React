@@ -6,7 +6,6 @@ import GameBoard from '../../components/GameBoard/GameBoard';
 import classes from './GamePanel.module.css';
 
 class GamePanel extends Component {
-
     state = {
         pickedRandomcolor: null,
         levels: {
@@ -70,9 +69,21 @@ class GamePanel extends Component {
         this.generateRandomColors(level);
     }
 
-    checkPickedColorHandler = (colorFromCard) => {
+    checkPickedColorHandler = (colorFromCard, e) => {
         if (colorFromCard === this.state.pickedRandomcolor) {
-            this.setState({ isPlaying: false });
+            const oneColorArr = [];
+            for (let idx = 0; idx < this.state.colors.length; ++idx) {
+                oneColorArr.push(this.state.pickedRandomcolor);
+            }
+
+            this.setState({ 
+                isPlaying: false,
+                colors: oneColorArr
+            });
+        } else {
+            // Is this the correct way???
+            e.target.style.backgroundColor = "#232323";
+            e.target.style.cursor = "default";
         }
     }
 
