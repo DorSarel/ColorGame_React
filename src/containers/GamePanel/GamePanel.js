@@ -23,6 +23,7 @@ class GamePanel extends Component {
                 numOfCards: 9
             }
         },
+        selectedLevel: 'meduim',
         isPlaying: true
     }
 
