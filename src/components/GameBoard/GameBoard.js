@@ -7,7 +7,7 @@ const gameBoard = ( props ) => {
 
     let cards = [];
     if (props.cardsColors.length !== 0) {
-        for (let idx = 0; idx < props.numOfCards; ++idx) {
+        for (let idx = 0; idx < props.cardsColors.length; ++idx) {
             let rgb = `rgb(${props.cardsColors[idx].red}, ${props.cardsColors[idx].green}, ${props.cardsColors[idx].blue})`;
             cards.push(
                 <GameCard 

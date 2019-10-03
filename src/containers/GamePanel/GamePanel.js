@@ -103,9 +103,10 @@ class GamePanel extends Component {
                 colors: oneColorArr,
             });
         } else {
-            // Is this the correct way???
-            e.target.style.backgroundColor = "#232323";
-            e.target.style.cursor = "default";
+            const colorIdx = this.state.colors.findIndex(el => el === colorFromCard);
+            let modifiedColors = [...this.state.colors];
+            modifiedColors.splice(colorIdx, 1);
+            this.setState({ colors: modifiedColors });
         }
     }
 
