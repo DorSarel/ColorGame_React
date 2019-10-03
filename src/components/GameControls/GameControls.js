@@ -15,15 +15,23 @@ const gameControls = ( props ) => {
     });
 
     const resetBtnTxt = props.isGameOn ? 'new colors' : 'reset';
+    let gameMessage = <p>Attempts: {props.userAttempts + 1} / {props.gameLevels[props.currentLevel]               .maxNumOfAttempts}</p>;
+    if (props.userAttempts >= props.gameLevels[props.currentLevel].maxNumOfAttempts && !props.isGameOn) {
+        gameMessage = <p>You Lost...</p>;
+    } else if(!props.isGameOn) {
+        gameMessage = <p>You Won!!!</p>;
+    }
 
     return (
         <div className={classes.gameControls}>
             <div className={classes.gameControls__flex}>
                 <div>
-                    <GameControl clicked={props.startGame}>
+                    <GameControl clicked={() => props.startGame()}>
                         {resetBtnTxt.toUpperCase()}
                     </GameControl>
                 </div>
+
+                {gameMessage}
 
                 <div>
                     {levelsControls}

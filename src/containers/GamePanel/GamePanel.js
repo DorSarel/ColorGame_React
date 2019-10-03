@@ -10,18 +10,23 @@ class GamePanel extends Component {
         pickedRandomcolor: null,
         levels: {
             easy: {
-                numOfCards: 4
+                numOfCards: 4,
+                maxNumOfAttempts: 3
             },
             meduim: {
-                numOfCards: 8
+                numOfCards: 8,
+                maxNumOfAttempts: 5
             },
             hard: {
-                numOfCards: 12
+                numOfCards: 12,
+                maxNumOfAttempts: 7
             }
         },
         selectedLevel: 'meduim',
         isPlaying: true,
-        colors: []
+        disableGame: false,
+        colors: [],
+        numOfAttempts: 0
     }
 
     componentDidMount() {
@@ -30,6 +35,7 @@ class GamePanel extends Component {
 
     generateRandomColors = (optionalLevel) => {
         let numOfCards = 0;
+        console.log(optionalLevel);
         if (!optionalLevel) {
             numOfCards = this.state.levels[this.state.selectedLevel].numOfCards;
         } else {
@@ -60,16 +66,32 @@ class GamePanel extends Component {
         return randomColors[randomIdx];
     }
 
-    startGameHandler = () => {
-        this.generateRandomColors();
+    startGameHandler = (level = null) => {
+        this.setState({
+            numOfAttempts: 0,
+            disableGame: false
+        });
+        this.generateRandomColors(level);
     }
 
     setGameLevelHandler = (level) => {
         this.setState({ selectedLevel: level });
-        this.generateRandomColors(level);
+        this.startGameHandler(level);
     }
 
     checkPickedColorHandler = (colorFromCard, e) => {
+
+        let currentNumOfAttemtps = this.state.numOfAttempts;
+        ++currentNumOfAttemtps;
+        this.setState({ numOfAttempts: currentNumOfAttemtps });
+
+        if (currentNumOfAttemtps >= this.state.levels[this.state.selectedLevel].maxNumOfAttempts) {
+            this.setState({ 
+                disableGame: true,
+                isPlaying: false
+            });
+        }
+
         if (colorFromCard === this.state.pickedRandomcolor) {
             const oneColorArr = [];
             for (let idx = 0; idx < this.state.colors.length; ++idx) {
@@ -78,7 +100,7 @@ class GamePanel extends Component {
 
             this.setState({ 
                 isPlaying: false,
-                colors: oneColorArr
+                colors: oneColorArr,
             });
         } else {
             // Is this the correct way???
@@ -96,12 +118,14 @@ class GamePanel extends Component {
                     isGameOn={this.state.isPlaying}
                     startGame={this.startGameHandler}
                     setLevel={this.setGameLevelHandler}
-                    currentLevel={this.state.selectedLevel} />
+                    currentLevel={this.state.selectedLevel}
+                    userAttempts={this.state.numOfAttempts} />
                 <main className={classes.gameBoard}>
                     <GameBoard 
                         numOfCards={this.state.levels[this.state.selectedLevel].numOfCards}
                         cardsColors={this.state.colors}
-                        checkCard={this.checkPickedColorHandler} />
+                        checkCard={this.checkPickedColorHandler}
+                        shouldDisable={this.state.disableGame} />
                 </main>
             </div>
         );

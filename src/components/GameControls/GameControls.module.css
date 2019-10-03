@@ -8,3 +8,9 @@
     width: 60%;
     margin: auto;
 }
+
+.gameControls__flex > p {
+    align-self: center;
+    font-weight: bold;
+    font-size: 1.15rem;
+}
